@@ -1,0 +1,113 @@
+.container {
+  display: block;
+  margin: 40px auto;
+  max-width: 650px;
+  padding: 50px;
+  border: solid;
+  border-width: thick;
+  border-radius: 30px;
+  border-color: lavender;
+  color: #38598b;
+}
+
+h1 {
+  margin: 20px 10px 15px;
+  font-size: 38px;
+}
+
+h2 {
+  margin: 0 14px;
+  font-weight: 400;
+  font-size: 25px;
+}
+
+h3 {
+  margin: 20px;
+  font-size: 45px;
+}
+
+.search-button {
+  background-color: lavender;
+  color: #38598b;
+  border: none;
+}
+
+.search-button:hover {
+  background-color: lavender;
+  color: #38598b;
+  transition: all 200ms ease-in-out;
+  opacity: 0.7;
+}
+.current-button {
+  background-color: #38598b;
+  color: white;
+  border: none;
+}
+
+.current-button:hover {
+  background-color: #38598b;
+  color: white;
+  transition: all 200ms ease-in-out;
+  opacity: 0.7;
+}
+
+.clock {
+  text-align: end;
+}
+
+hr {
+  color: lavender;
+  opacity: 1;
+  border-width: 3px;
+  border-radius: 30px;
+}
+
+div.future-days {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 250;
+}
+
+i.weather-icon {
+  text-align: center;
+  display: block;
+  margin: 7px auto;
+  font-size: 30px;
+}
+
+i#current-date {
+  font-style: normal;
+  position: relative;
+  left: 8px;
+}
+
+i#current-time {
+  font-style: normal;
+}
+
+i#location {
+  font-style: normal;
+}
+
+i#temperature {
+  font-style: normal;
+}
+
+span#temperature-metric {
+  font-style: normal;
+  font-size: 20px;
+  position: relative;
+  bottom: 17px;
+}
+
+span#temperature-metric a {
+  text-decoration: none;
+  color: #38598b;
+  opacity: 0.7;
+}
+
+span#temperature-metric a:hover {
+  opacity: 1;
+  text-decoration: underline;
+  transition: all 200ms ease-in-out;
+}
