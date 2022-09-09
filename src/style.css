@@ -111,3 +111,8 @@ span#temperature-metric a:hover {
   text-decoration: underline;
   transition: all 200ms ease-in-out;
 }
+
+div.github-source-code {
+  text-align: center;
+  font-size: 10px;
+}
