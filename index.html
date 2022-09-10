@@ -73,16 +73,28 @@
         </div>
       </div>
 
-      <h3>
-        <img src="" alt="" id="icon" />
-        <i id="temperature">25</i>
-        <span id="temperature-metric">
-          <a href="#" id="celsius-metric">°C</a>
-          |
-          <a href="#" id="fahrenheit-metric">°F</a>
-        </span>
-      </h3>
-
+      <div class="row">
+        <div class="col-6 weather-temperature">
+          <h3>
+            <img src="" alt="" id="icon" />
+            <i id="temperature">25</i>
+            <span id="temperature-metric">
+              <a href="#" id="celsius-metric">°C</a>
+              |
+              <a href="#" id="fahrenheit-metric">°F</a>
+            </span>
+          </h3>
+        </div>
+        <div class="col-6 weather-description">
+          <ul>
+            <li id="weather-condition"></li>
+            <li id="wind-speed"></li>
+            <span> km/h </span>
+            <li id="humidity"></li>
+            %
+          </ul>
+        </div>
+      </div>
       <hr />
 
       <div class="row">

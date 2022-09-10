@@ -35,7 +35,7 @@ h2 {
 }
 
 h3 {
-  margin: 20px 0px 20px 0px;
+  margin: 20px 0px 0px;
   font-size: 45px;
 }
 
@@ -74,6 +74,7 @@ hr {
   opacity: 1;
   border-width: 3px;
   border-radius: 30px;
+  margin: 10px 0px;
 }
 
 div.future-days {
@@ -103,6 +104,10 @@ i#location {
   font-style: normal;
 }
 
+.weather-temperature {
+  padding: 0px;
+}
+
 i#temperature {
   font-style: normal;
 }
@@ -126,6 +131,15 @@ span#temperature-metric a:hover {
   transition: all 200ms ease-in-out;
 }
 
+ul {
+  list-style: none;
+  margin: 0px;
+}
+
+.weather-description {
+  text-align: end;
+  padding: 0px;
+}
 div.github-source-code {
   text-align: center;
   font-size: 10px;

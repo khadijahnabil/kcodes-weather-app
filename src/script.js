@@ -63,8 +63,19 @@ function searchCity(event) {
 function showTemperature(response) {
   let location = document.querySelector("#location");
   location.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
+
   let temperature = document.querySelector("#temperature");
   temperature.innerHTML = Math.round(response.data.main.temp);
+
+  let weatherCondition = document.querySelector("#weather-condition");
+  weatherCondition.innerHTML = response.data.weather[0].main;
+
+  let windSpeed = document.querySelector("#wind-speed");
+  windSpeed.innerHTML = Math.round(response.data.wind.speed);
+
+  let humidity = document.querySelector("#humidity");
+  humidity.innerHTML = response.data.main.humidity;
+
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
