@@ -15,8 +15,12 @@ h1 {
   font-size: 38px;
 }
 
+.location-title {
+  padding: 0;
+}
+
 h2 {
-  margin: 0 14px;
+  margin: 0px;
   font-weight: 400;
   font-size: 25px;
 }
@@ -53,6 +57,7 @@ h3 {
 
 .clock {
   text-align: end;
+  padding: 0;
 }
 
 hr {
