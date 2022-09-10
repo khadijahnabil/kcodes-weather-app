@@ -11,7 +11,7 @@
 }
 
 h1 {
-  margin: 20px 10px 15px;
+  margin: 20px 0px 0px;
   font-size: 38px;
 }
 
@@ -19,10 +19,19 @@ h1 {
   padding: 0;
 }
 
+.time-description {
+  font-size: 10px;
+}
+
 h2 {
   margin: 0px;
   font-weight: 400;
   font-size: 25px;
+}
+
+.current-date {
+  position: relative;
+  top: 15px;
 }
 
 h3 {
