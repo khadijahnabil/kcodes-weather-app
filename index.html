@@ -76,7 +76,11 @@
       <div class="row">
         <div class="col-6 weather-temperature">
           <h3>
-            <img src="" alt="" id="icon" />
+            <img
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt=""
+              id="icon"
+            />
             <i id="temperature">25</i>
             <span id="temperature-metric">
               <a href="#" id="celsius-metric">°C</a>
@@ -86,12 +90,21 @@
           </h3>
         </div>
         <div class="col-6 weather-description">
-          <ul>
-            <li id="weather-condition"></li>
-            <li id="wind-speed"></li>
-            <span> km/h </span>
-            <li id="humidity"></li>
-            %
+          <ul class="weather-list">
+            <li>
+              <span>Weather condition:</span>
+              <span id="weather-condition"></span>
+            </li>
+            <li>
+              <span>Wind-speed:</span>
+              <span id="wind-speed"></span>
+              <span>km/h</span>
+            </li>
+            <li>
+              <span>Humidity:</span>
+              <span id="humidity" class="list"></span>
+              <span>%</span>
+            </li>
           </ul>
         </div>
       </div>

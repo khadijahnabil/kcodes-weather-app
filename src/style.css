@@ -139,6 +139,12 @@ ul {
 .weather-description {
   text-align: end;
   padding: 0px;
+  margin: 20px 0px 0px;
+}
+
+.weather-list {
+  position: relative;
+  top: 20px;
 }
 div.github-source-code {
   text-align: center;
