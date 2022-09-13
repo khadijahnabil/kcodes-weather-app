@@ -86,6 +86,7 @@ function showTemperature(response) {
 
 let searchBar = document.querySelector("#search-city-form");
 searchBar.addEventListener("submit", searchCity);
+searchBar.setAttribute("autocomplete", "off");
 
 /** getting the current location temp */
 
