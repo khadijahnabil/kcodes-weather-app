@@ -53,40 +53,6 @@ updateTime(); //update time at page load
 
 /** fetch location temperature by search input */
 
-function searchCity(event) {
-  event.preventDefault();
-  let apiKey = "80dc7df8d65a892260c3615024200847";
-  let apiURL = "https://api.openweathermap.org/data/2.5/weather";
-  let cityName = document.querySelector("#search-text-input").value;
-  axios
-    .get(`${apiURL}?q=${cityName}&appid=${apiKey}&units=metric`)
-    .then(displayTemperature);
-}
-
-function displayForecast() {
-  let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
-    <div class="col-2">
-      <div class="weather-forecast-date">${day}</div>
-      <i class="fa-solid fa-cloud weather-icon"></i>
-      <div class="weather-forecast-temperature">
-        <span class="weather-forecast-temperature-min"> 28° </span>
-        <span class="weather-forecast-temperature-max"> 28° </span>
-      </div>
-    </div>
-  `;
-  });
-  forecastHTML = forecastHTML + `</div>`;
-  forecastElement.innerHTML = forecastHTML;
-}
-
-displayForecast();
-
 function displayTemperature(response) {
   updateTime(); //update time when searching new city
   let location = document.querySelector("#location");
@@ -112,9 +78,48 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-let searchBar = document.querySelector("#search-city-form");
-searchBar.addEventListener("submit", searchCity);
-searchBar.setAttribute("autocomplete", "off");
+function searchCity(city) {
+  let apiKey = "80dc7df8d65a892260c3615024200847";
+  let apiURL = "https://api.openweathermap.org/data/2.5/weather";
+  axios
+    .get(`${apiURL}?q=${city}&appid=${apiKey}&units=metric`)
+    .then(displayTemperature);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#search-text-input");
+  searchCity(cityInput.value);
+}
+
+let form = document.querySelector("#search-city-form");
+form.addEventListener("submit", handleSubmit);
+form.setAttribute("autocomplete", "off");
+
+/**forecast HTML element */
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col-2">
+      <div class="weather-forecast-date">${day}</div>
+      <i class="fa-solid fa-cloud weather-icon"></i>
+      <div class="weather-forecast-temperature">
+        <span class="weather-forecast-temperature-min"> 28° </span>
+        <span class="weather-forecast-temperature-max"> 28° </span>
+      </div>
+    </div>
+  `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();
 
 /** getting the current location temp */
 
