@@ -60,10 +60,34 @@ function searchCity(event) {
   let cityName = document.querySelector("#search-text-input").value;
   axios
     .get(`${apiURL}?q=${cityName}&appid=${apiKey}&units=metric`)
-    .then(showTemperature);
+    .then(displayTemperature);
 }
 
-function showTemperature(response) {
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col-2">
+      <div class="weather-forecast-date">${day}</div>
+      <i class="fa-solid fa-cloud weather-icon"></i>
+      <div class="weather-forecast-temperature">
+        <span class="weather-forecast-temperature-min"> 28° </span>
+        <span class="weather-forecast-temperature-max"> 28° </span>
+      </div>
+    </div>
+  `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();
+
+function displayTemperature(response) {
   updateTime(); //update time when searching new city
   let location = document.querySelector("#location");
   location.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
@@ -101,7 +125,7 @@ function displayCurrentPosition(position) {
   let lon = position.coords.longitude;
   axios
     .get(`${apiURL}?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`)
-    .then(showTemperature);
+    .then(displayTemperature);
 }
 
 let currentLocButton = document.querySelector("#current-location-button");
