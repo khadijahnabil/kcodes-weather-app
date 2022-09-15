@@ -1,6 +1,3 @@
-/**get current date and time */
-let now = new Date();
-
 function displayDay(time) {
   let days = [
     "Sunday",
@@ -33,9 +30,6 @@ function displayDay(time) {
   return `${day}, ${date} ${month} ${year}`;
 }
 
-let currentDate = document.querySelector("#current-date");
-currentDate.innerHTML = displayDay(now);
-
 function displayTime(time) {
   let hour = time.getHours();
   hour = hour < 10 ? "0" + hour : hour;
@@ -45,8 +39,17 @@ function displayTime(time) {
   return `${hour}:${minute}`;
 }
 
-let currentTime = document.querySelector("#current-time");
-currentTime.innerHTML = displayTime(now);
+/**get current date and time */
+
+function updateTime() {
+  let now = new Date();
+  let currentDate = document.querySelector("#current-date");
+  currentDate.innerHTML = displayDay(now);
+  let currentTime = document.querySelector("#current-time");
+  currentTime.innerHTML = displayTime(now);
+}
+
+updateTime(); //update time at page load
 
 /** fetch location temperature by search input */
 
@@ -61,6 +64,7 @@ function searchCity(event) {
 }
 
 function showTemperature(response) {
+  updateTime(); //update time when searching new city
   let location = document.querySelector("#location");
   location.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
 
