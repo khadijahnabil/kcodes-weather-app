@@ -51,6 +51,41 @@ function updateTime() {
 
 updateTime(); //update time at page load
 
+/**forecast HTML element */
+
+function displayForecast(response) {
+  console.log(response?.data?.daily);
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col-2">
+      <div class="weather-forecast-date">${day}</div>
+      <i class="fa-solid fa-cloud weather-icon"></i>
+      <div class="weather-forecast-temperature">
+        <span class="weather-forecast-temperature-min"> 28° </span>
+        <span class="weather-forecast-temperature-max"> 28° </span>
+      </div>
+    </div>
+  `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast(null); //update forecast HTML at page load
+
+/**get 8 days forecast at every search*/
+
+function getForecast(coordinates) {
+  let apiKey = `ebef9ca4a8de66ed586fac628fade056`;
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiURL).then(displayForecast);
+}
+
 /** fetch location temperature by search input */
 
 function displayTemperature(response) {
@@ -76,6 +111,8 @@ function displayTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -95,31 +132,6 @@ function handleSubmit(event) {
 let form = document.querySelector("#search-city-form");
 form.addEventListener("submit", handleSubmit);
 form.setAttribute("autocomplete", "off");
-
-/**forecast HTML element */
-function displayForecast() {
-  let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
-    <div class="col-2">
-      <div class="weather-forecast-date">${day}</div>
-      <i class="fa-solid fa-cloud weather-icon"></i>
-      <div class="weather-forecast-temperature">
-        <span class="weather-forecast-temperature-min"> 28° </span>
-        <span class="weather-forecast-temperature-max"> 28° </span>
-      </div>
-    </div>
-  `;
-  });
-  forecastHTML = forecastHTML + `</div>`;
-  forecastElement.innerHTML = forecastHTML;
-}
-
-displayForecast();
 
 /** getting the current location temp */
 
