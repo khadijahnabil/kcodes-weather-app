@@ -63,7 +63,7 @@ function formatDay(timestamp) {
 /**forecast HTML element */
 
 function displayForecast(response) {
-  let forecast = response?.data?.daily;
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
@@ -72,21 +72,21 @@ function displayForecast(response) {
         forecastHTML +
         `
         <div class="col-2">
-          <div class="weather-forecast-date">${formatDay(forecastDay?.dt)}</div>
+          <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
           <img 
             src="http://openweathermap.org/img/wn/${
-              forecastDay?.weather[0]?.icon
+              forecastDay.weather[0].icon
             }@2x.png"
             alt=""
             width= 50px; 
           />
           <div class="weather-forecast-temperature">
             <span class="weather-forecast-temperature-min"> 
-            ${Math.round(forecastDay?.temp?.min)}°
+            ${Math.round(forecastDay.temp.min)}°
             </span>
             <span>|</span>
             <span class="weather-forecast-temperature-max"> 
-            ${Math.round(forecastDay?.temp?.max)}°
+            ${Math.round(forecastDay.temp.max)}°
             </span>
           </div>
         </div>
@@ -96,8 +96,6 @@ function displayForecast(response) {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-
-// displayForecast(null); //update forecast HTML at page load
 
 /**get 8 days forecast at every search*/
 
@@ -203,3 +201,5 @@ fahrenheitAnchor.addEventListener("click", displayTemperatureF);
 
 let celsiusAnchor = document.querySelector("#celsius-metric");
 celsiusAnchor.addEventListener("click", displayTemperatureC);
+
+searchCity("Amsterdam"); //display Amsterdam data for better landing page
