@@ -96,13 +96,6 @@ span.weather-forecast-temperature-min {
   opacity: 0.7;
 }
 
-i.weather-icon {
-  text-align: center;
-  display: block;
-  margin: 7px auto;
-  font-size: 30px;
-}
-
 i#current-date {
   font-style: normal;
   position: relative;
