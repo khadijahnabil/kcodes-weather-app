@@ -3,6 +3,7 @@ import React from "react";
 
 import SearchEngine from "./SearchEngine";
 import WeatherData from "./WeatherData";
+import GithubRepo from "./GithubRepo";
 
 import "./App.css";
 
@@ -13,6 +14,7 @@ function App() {
         <SearchEngine />
         <WeatherData />
       </div>
+      <GithubRepo />
     </div>
   );
 }
