@@ -1,0 +1,11 @@
+.weather-app .container {
+  display: block;
+  margin: 40px auto;
+  max-width: 650px;
+  padding: 50px;
+  border: solid;
+  border-width: thick;
+  border-radius: 30px;
+  border-color: lavender;
+  color: #38598b;
+}
