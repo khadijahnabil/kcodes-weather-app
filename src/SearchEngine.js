@@ -5,12 +5,11 @@ import "./SearchEngine.css";
 export default function SearchEngine() {
   return (
     <div className="search-engine">
-      <form id="search-city-form">
+      <form>
         <div className="row">
           <div className="col-8">
             <input
               type="search"
-              id="search-text-input"
               className="form-control"
               placeholder="Enter a city"
               autoFocus="on"
@@ -24,12 +23,7 @@ export default function SearchEngine() {
             />
           </div>
           <div className="col-2">
-            <button
-              className="btn shadow-sm current-button"
-              id="current-location-button"
-            >
-              Current
-            </button>
+            <button className="btn shadow-sm current-button">Current</button>
           </div>
         </div>
       </form>
