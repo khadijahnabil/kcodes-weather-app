@@ -1,3 +1,28 @@
+.SearchEngine .search-button {
+  background-color: lavender;
+  color: #38598b;
+  border: none;
+}
+
+.SearchEngine.search-button:hover {
+  background-color: lavender;
+  color: #38598b;
+  transition: all 200ms ease-in-out;
+  opacity: 0.7;
+}
+.SearchEngine.current-button {
+  background-color: #38598b;
+  color: white;
+  border: none;
+}
+
+.SearchEngine.current-button:hover {
+  background-color: #38598b;
+  color: white;
+  transition: all 200ms ease-in-out;
+  opacity: 0.7;
+}
+
 .weather-data .location-title {
   margin: 20px 0px 0px;
   font-size: 38px;
