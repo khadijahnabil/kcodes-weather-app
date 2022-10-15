@@ -1,0 +1,86 @@
+.weather-data .location-title {
+  margin: 20px 0px 0px;
+  font-size: 38px;
+}
+
+.weather-data i.location {
+  font-style: normal;
+}
+
+.weather-data h2 {
+  margin: 0px;
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.weather-data .current-date-title {
+  position: relative;
+  top: 15px;
+  padding-left: 16px;
+}
+
+.weather-data span.current-date {
+  font-style: normal;
+  position: relative;
+  top: -1px;
+  left: 10px;
+}
+
+.weather-data .clock {
+  text-align: end;
+  padding: 0;
+}
+
+.weather-data .time-description {
+  font-size: 10px;
+}
+
+.weather-data i.current-time {
+  font-style: normal;
+}
+
+.weather-data h3 {
+  margin: 20px 0px 0px;
+  font-size: 45px;
+}
+
+.weather-data .temperature-title {
+  padding: 0px;
+}
+
+.weather-data i.temperature {
+  font-style: normal;
+}
+
+.weather-data span.temperature-metric {
+  font-style: normal;
+  font-size: 20px;
+  position: relative;
+  bottom: 17px;
+}
+
+.weather-data span.temperature-metric a {
+  text-decoration: none;
+  color: #38598b;
+  opacity: 0.7;
+}
+
+.weather-data span.temperature-metric a:hover {
+  opacity: 1;
+  text-decoration: underline;
+  transition: all 200ms ease-in-out;
+}
+
+.weather-data .weather-description {
+  text-align: end;
+  padding: 0px;
+  margin: 20px 0px 0px;
+}
+
+.weather-data ul.weather-list {
+  list-style: none;
+  margin: 0px;
+  position: relative;
+  top: 20px;
+  font-size: 13px;
+}

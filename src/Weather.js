@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import FormattedDate from "./FormattedDate";
-import FormattedTime from "./FormattedTime";
+import WeatherData from "./WeatherData";
 
 import "./Weather.css";
 
@@ -28,6 +27,7 @@ export default function Weather(props) {
   function displayWeather(response) {
     setWeatherData({
       ready: true,
+      city: response.data.name,
       date: new Date(response.data.dt * 1000),
       temperature: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
@@ -39,7 +39,7 @@ export default function Weather(props) {
 
   if (!weatherData.ready) {
     search();
-    return "Loading wawa";
+    return "Loading...";
   } else {
     return (
       <div className="Weather">
@@ -70,71 +70,7 @@ export default function Weather(props) {
             </div>
           </form>
         </div>
-        <div className="weather-data">
-          <div>
-            <h1 className="location-title">
-              <i className="fa-solid fa-location-dot"></i>
-              <i className="location"> {city}</i>
-            </h1>
-          </div>
-
-          <div className="row">
-            <div className="col-8 current-date-title">
-              <h2>
-                <i className="fa-regular fa-calendar"></i>
-                <span className="current-date">
-                  <FormattedDate date={weatherData.date} />
-                </span>
-              </h2>
-            </div>
-            <div className="col-4 clock">
-              <h2>
-                <div className="time-description">Last updated</div>
-                <i className="fa-regular fa-clock"></i>
-                <i className="current-time">
-                  {" "}
-                  <FormattedTime time={weatherData.date} />
-                </i>
-              </h2>
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="col-6 temperature-title">
-              <h3>
-                <img src={weatherData.icon} alt={weatherData.description} />
-                <i className="temperature">{weatherData.temperature}</i>
-                <span className="temperature-metric">
-                  <a href="/"> °C</a> | <a href="/">°F</a>
-                </span>
-              </h3>
-            </div>
-            <div className="col-6 weather-description">
-              <ul className="weather-list">
-                <li>
-                  <i className="fa-solid fa-circle-info"></i>
-                  <span>Weather condition:</span>
-                  <span className="text-capitalize">
-                    {" "}
-                    {weatherData.description}
-                  </span>
-                </li>
-                <li>
-                  <i className="fa-solid fa-wind"></i>
-                  <span>Wind-speed:</span>
-                  <span> {weatherData.wind}</span>
-                  <span>km/h</span>
-                </li>
-                <li>
-                  <i className="fa-solid fa-droplet"></i>
-                  <span>Humidity:</span>
-                  <span className="list"> {weatherData.humidity}</span>
-                  <span>%</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <WeatherData data={weatherData} />
       </div>
     );
   }
