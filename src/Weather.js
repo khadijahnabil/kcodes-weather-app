@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import FormattedDate from "./FormattedDate";
+import FormattedTime from "./FormattedTime";
+
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -25,6 +28,7 @@ export default function Weather(props) {
   function displayWeather(response) {
     setWeatherData({
       ready: true,
+      date: new Date(response.data.dt * 1000),
       temperature: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
@@ -78,14 +82,19 @@ export default function Weather(props) {
             <div className="col-8 current-date-title">
               <h2>
                 <i className="fa-regular fa-calendar"></i>
-                <span className="current-date">{weatherData.date}</span>
+                <span className="current-date">
+                  <FormattedDate date={weatherData.date} />
+                </span>
               </h2>
             </div>
             <div className="col-4 clock">
               <h2>
                 <div className="time-description">Last updated</div>
                 <i className="fa-regular fa-clock"></i>
-                <i className="current-time"> {weatherData.time}</i>
+                <i className="current-time">
+                  {" "}
+                  <FormattedTime time={weatherData.date} />
+                </i>
               </h2>
             </div>
           </div>
