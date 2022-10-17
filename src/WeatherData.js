@@ -12,7 +12,10 @@ export default function WeatherData(props) {
       <div>
         <h1 className="location-title">
           <i className="fa-solid fa-location-dot"></i>
-          <i className="location"> {props.data.city}</i>
+          <i className="location">
+            {" "}
+            {props.data.city}, {props.data.country}
+          </i>
         </h1>
       </div>
 
