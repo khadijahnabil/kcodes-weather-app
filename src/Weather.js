@@ -19,7 +19,7 @@ export default function Weather(props) {
   }
 
   function search() {
-    const apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+    const apiKey = "3fdc8cfbf2d6fa0116c9ae92d3df4f79";
     const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiURL).then(displayWeather);
   }
@@ -33,7 +33,7 @@ export default function Weather(props) {
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
-      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      icon: response.data.weather[0].icon,
     });
   }
 
