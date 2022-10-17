@@ -1,5 +1,4 @@
 import React from "react";
-import "./WeatherIcon.css";
 
 export default function WeatherIcon(props) {
   const codeMapping = {
@@ -22,5 +21,11 @@ export default function WeatherIcon(props) {
     "50d": "/icons/mist.svg",
     "50n": "/icons/mist.svg",
   };
-  return <img src={codeMapping[props.code]} alt={props.alt} />;
+  return (
+    <img
+      style={{ width: props.size, margin: props.margin }}
+      src={codeMapping[props.code]}
+      alt={props.alt}
+    />
+  );
 }

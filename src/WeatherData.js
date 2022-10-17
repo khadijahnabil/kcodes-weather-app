@@ -48,6 +48,7 @@ export default function WeatherData(props) {
               <WeatherIcon
                 code={props.data.icon}
                 alt={props.data.description}
+                size="80px"
               />
             </span>
             <WeatherTemperature celsius={props.data.temperature} />
