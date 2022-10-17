@@ -26,10 +26,10 @@ export default function Weather(props) {
 
   function onClickCurrentLocButton(event) {
     event.preventDefault();
-    navigator.geolocation.getCurrentPosition(displayCurrentPosition);
+    navigator.geolocation.getCurrentPosition(getCurrentPosition);
   }
 
-  function displayCurrentPosition(position) {
+  function getCurrentPosition(position) {
     let apiKey = "06253f1b1ac0432d6e25594b80a53a85";
     let apiURL = "https://api.openweathermap.org/data/2.5/weather";
     let lat = position.coords.latitude;
@@ -40,7 +40,6 @@ export default function Weather(props) {
   }
 
   function displayWeather(response) {
-    console.log(response);
     setWeatherData({
       ready: true,
       city: response.data.name,
