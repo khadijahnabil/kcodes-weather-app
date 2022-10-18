@@ -21,7 +21,7 @@ export default function WeatherForecastDay(props) {
   }
 
   return (
-    <div className="WeatherForecastDay">
+    <div className="col-2">
       <div className="WeatherForecast-day">{formattedDay()}</div>
       <WeatherIcon
         code={props.data.weather[0].icon}
